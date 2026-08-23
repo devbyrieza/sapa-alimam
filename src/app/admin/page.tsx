@@ -109,7 +109,13 @@ export default function RadarTamuAdmin() {
         {/* Header & Roster Banner */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gradient-to-r from-primary-900 to-primary-700 p-8 rounded-3xl text-white shadow-xl shadow-primary-900/20">
           <div>
-            <h1 className="text-3xl font-black mb-2 text-white">Live Radar Tamu</h1>
+            <h1 className="text-3xl font-black mb-2 flex items-center gap-3 text-white">
+              <div className="flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-lg text-2xl uppercase tracking-widest border border-emerald-500/30">
+                <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+                LIVE
+              </div>
+              Radar Tamu
+            </h1>
             <p className="text-primary-100 font-medium">Sistem Monitoring & Resepsionis Digital Al-Andalus</p>
           </div>
           <div className="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
