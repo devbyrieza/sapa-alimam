@@ -6,7 +6,7 @@ export default function Loading() {
       <div className="relative flex flex-col items-center">
         {/* Logo or Center Icon */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-10 h-10 bg-primary-600 rounded-full animate-pulse"></div>
+          <img src="/logo-alimam.png" alt="Logo" className="w-12 h-12 object-contain animate-pulse drop-shadow-md" onError={(e) => (e.currentTarget.style.display = 'none')} />
         </div>
         
         {/* Spinning Ring */}
