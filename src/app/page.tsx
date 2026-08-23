@@ -57,7 +57,7 @@ export default function BukuTamuKiosk() {
             className="flex flex-col items-center justify-center min-h-[60vh] cursor-pointer hover:scale-[1.02] transition-transform duration-500"
           >
             <div className="bg-white/80 backdrop-blur-xl p-16 rounded-[3rem] shadow-2xl shadow-primary-500/10 text-center border border-white">
-              <img src="/logo.png" alt="Logo" className="w-32 h-32 mx-auto mb-8 drop-shadow-md" onError={(e) => (e.currentTarget.style.display = 'none')} />
+              <img src="/logo.png" alt="Logo" className="w-32 h-32 mx-auto mb-8 drop-shadow-md"  />
               <h1 className="text-5xl font-black text-slate-800 mb-4 tracking-tight">Ahlan wa Sahlan</h1>
               <p className="text-2xl text-slate-600 mb-12">Pesantren Al-Andalus / Al-Imam</p>
               
