@@ -30,6 +30,8 @@ interface Tamu {
 export default function RadarTamuAdmin() {
   const [dayOfWeek, setDayOfWeek] = useState<number>(1);
   const [piketHariIni, setPiketHariIni] = useState("");
+  const [kategori, setKategori] = useState<string | null>(null);
+  const [ratingMode, setRatingMode] = useState<string | null>(null);
   
   // Dummy Data for Demo
   const [daftarTamu, setDaftarTamu] = useState<Tamu[]>([
@@ -61,12 +63,7 @@ export default function RadarTamuAdmin() {
   };
 
   const handleFinish = (id: string) => {
-    setDaftarTamu(prev => prev.map(tamu => {
-      if (tamu.id === id) return { ...tamu, status: "FINISHED" };
-      return tamu;
-    }));
-    // In real app, this triggers the WA Survey Blast!
-    alert("Kunjungan Selesai. Link Survei Kepuasan (Rating) telah dikirim via WhatsApp ke tamu secara otomatis!");
+    setRatingMode(id);
   };
 
   return (
