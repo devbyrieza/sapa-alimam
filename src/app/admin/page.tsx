@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Users, Clock, CheckCircle2, UserPlus, Star, Shield, ArrowRight } from "lucide-react";
+import { Users, Clock, CheckCircle2, UserPlus, Star, Shield, ArrowRight, UserCircle, LogOut, Settings } from "lucide-react";
 
 
 // The Roster based on user instructions
@@ -32,6 +32,7 @@ export default function RadarTamuAdmin() {
   const [piketHariIni, setPiketHariIni] = useState("");
   const [kategori, setKategori] = useState<string | null>(null);
   const [ratingMode, setRatingMode] = useState<string | null>(null);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
   
   // Dummy Data for Demo
   const [daftarTamu, setDaftarTamu] = useState<Tamu[]>([
@@ -70,6 +71,41 @@ export default function RadarTamuAdmin() {
     <div className="min-h-screen bg-slate-50">
       <div className="p-8 max-w-7xl mx-auto space-y-8">
         
+        {/* Top Navbar */}
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex items-center gap-3">
+            <img src="/logo-alimam.png" alt="Logo" className="w-12 h-12 drop-shadow-sm" onError={(e) => (e.currentTarget.style.display = 'none')} />
+            <h1 className="text-2xl font-black text-slate-800">Portal Asatidz</h1>
+          </div>
+          
+          {/* Profile Dropdown */}
+          <div className="relative">
+            <button onClick={() => setShowProfileMenu(!showProfileMenu)} className="flex items-center gap-3 hover:bg-slate-200 p-2 pr-4 rounded-full transition-all bg-white shadow-sm border border-slate-200">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary-600 to-primary-400 flex items-center justify-center text-white shadow-inner">
+                <UserCircle className="w-6 h-6" />
+              </div>
+              <div className="text-left hidden md:block">
+                <p className="text-sm font-bold text-slate-700 leading-none">Ustadz Piket</p>
+                <p className="text-xs text-slate-500 mt-1">Resepsionis</p>
+              </div>
+            </button>
+
+            {showProfileMenu && (
+              <div className="absolute right-0 mt-3 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 p-2 z-50 animate-in fade-in slide-in-from-top-4">
+                <div className="p-3 border-b border-slate-50 mb-2">
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Akun Saya</p>
+                </div>
+                <button className="w-full flex items-center gap-3 px-4 py-3 text-sm font-bold text-slate-600 hover:bg-slate-50 rounded-xl transition-colors">
+                  <Settings className="w-4 h-4 text-slate-400" /> Pengaturan Profil
+                </button>
+                <button className="w-full flex items-center gap-3 px-4 py-3 text-sm font-bold text-red-600 hover:bg-red-50 rounded-xl transition-colors mt-1">
+                  <LogOut className="w-4 h-4 text-red-400" /> Keluar (Logout)
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* Header & Roster Banner */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gradient-to-r from-primary-900 to-primary-700 p-8 rounded-3xl text-white shadow-xl shadow-primary-900/20">
           <div>

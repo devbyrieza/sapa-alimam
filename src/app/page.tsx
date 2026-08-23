@@ -34,9 +34,34 @@ export default function BukuTamuKiosk() {
     setNama(""); setWa(""); setAlamat(""); setInstansi(""); setKeperluan("");
   };
 
+  // Mandatory UX Rule: Draft Autosave
+  useEffect(() => {
+    const draft = localStorage.getItem('tamu_alimam_draft');
+    if (draft) {
+      try {
+        const parsed = JSON.parse(draft);
+        if (parsed.nama) setNama(parsed.nama);
+        if (parsed.wa) setWa(parsed.wa);
+        if (parsed.instansi) setInstansi(parsed.instansi);
+        if (parsed.alamat) setAlamat(parsed.alamat);
+        if (parsed.keperluan) setKeperluan(parsed.keperluan);
+      } catch (e) {
+        console.error('Failed to parse draft');
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    // Only save draft if user has typed something to avoid overwriting with empty
+    if (nama || wa || instansi || alamat || keperluan) {
+      localStorage.setItem('tamu_alimam_draft', JSON.stringify({ nama, wa, instansi, alamat, keperluan }));
+    }
+  }, [nama, wa, instansi, alamat, keperluan]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStep(3); // Success Screen
+    localStorage.removeItem('tamu_alimam_draft');
     setTimeout(() => {
       resetForm();
     }, 5000);
