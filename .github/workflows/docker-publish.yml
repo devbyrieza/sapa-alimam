@@ -41,3 +41,15 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Trigger Coolify Deployment
+        env:
+          COOLIFY_WEBHOOK: ${{ secrets.COOLIFY_WEBHOOK }}
+        run: |
+          if [ -n "$COOLIFY_WEBHOOK" ]; then
+            echo "Triggering Coolify webhook..."
+            curl -k -X GET "$COOLIFY_WEBHOOK"
+            echo "Webhook triggered successfully!"
+          else
+            echo "No COOLIFY_WEBHOOK secret found. Skipping automatic deployment."
+          fi
