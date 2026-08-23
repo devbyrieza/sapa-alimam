@@ -7,13 +7,23 @@ export default function LoginAsatidz() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [errorMsg, setErrorMsg] = useState("");
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg("");
     setLoading(true);
-    // Fake login delay for realism
+
+    // Hardcode auth for Demo / Pre-DB integration
     setTimeout(() => {
-      window.location.href = "/admin";
-    }, 1500);
+      if (password === "PAAS2026!" || password === "2026#@") {
+        document.cookie = "tamu_auth=true; path=/; max-age=86400";
+        window.location.href = "/admin";
+      } else {
+        setLoading(false);
+        setErrorMsg("Username atau Password salah.");
+      }
+    }, 1000);
   };
 
   return (
@@ -56,6 +66,12 @@ export default function LoginAsatidz() {
                 <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-slate-800 font-medium" placeholder="••••••••" />
               </div>
             </div>
+
+            {errorMsg && (
+              <div className="p-3 bg-red-50 border border-red-200 text-red-600 rounded-xl text-sm font-bold text-center animate-in fade-in">
+                {errorMsg}
+              </div>
+            )}
 
             <div className="pt-4">
               <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-2xl font-black text-lg shadow-xl shadow-primary-600/20 transition-all">
