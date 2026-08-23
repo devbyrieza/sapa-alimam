@@ -185,6 +185,27 @@ export default function RadarTamuAdmin() {
           </div>
         </div>
       </div>
+
+      {ratingMode && (
+        <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-white rounded-[2.5rem] p-10 max-w-lg w-full text-center shadow-2xl animate-in zoom-in duration-300 border border-white/20">
+            <Star className="w-20 h-20 text-gold-400 mx-auto mb-6 drop-shadow-md" />
+            <h2 className="text-3xl font-black text-slate-800 mb-2">Penilaian Pelayanan</h2>
+            <p className="text-slate-500 mb-8 text-lg">Bapak/Ibu Tamu Yth, mohon berikan penilaian bintang atas pelayanan kami hari ini.</p>
+            <div className="flex justify-center gap-3 mb-10">
+              {[1,2,3,4,5].map(star => (
+                <button key={star} onClick={() => {
+                   setDaftarTamu(prev => prev.map(t => t.id === ratingMode ? { ...t, status: "FINISHED" } : t));
+                   setRatingMode(null);
+                }} className="text-slate-200 hover:text-gold-400 hover:scale-125 transition-all">
+                  <Star className="w-14 h-14 fill-current" />
+                </button>
+              ))}
+            </div>
+            <p className="text-sm text-slate-400 font-medium">Layar ini akan tertutup otomatis setelah bintang dipilih.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
