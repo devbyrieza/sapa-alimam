@@ -36,8 +36,8 @@ export default function LoginAsatidz() {
           <div className="w-24 h-24 bg-white rounded-full p-4 mx-auto mb-4 shadow-xl flex items-center justify-center">
             <img src="/logo-alimam.png" alt="Logo" className="w-16 h-16 object-contain" />
           </div>
-          <h1 className="text-3xl font-black text-white mb-2">Portal Asatidz</h1>
-          <p className="text-primary-100 font-medium">Sistem Informasi Manajemen Terpadu</p>
+          <h1 className="text-3xl font-black text-white mb-2">Portal SAPA</h1>
+          <p className="text-primary-100 font-medium">Sistem Administrasi Pengunjung & Akses</p>
         </div>
 
         <div className="bg-white/90 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-2xl border border-white">

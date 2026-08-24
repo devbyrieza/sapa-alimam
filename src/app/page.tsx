@@ -87,7 +87,7 @@ export default function BukuTamuKiosk() {
               <p className="text-2xl text-slate-600 mb-12">Pesantren Al-Andalus / Al-Imam</p>
               
               <div className="inline-flex items-center gap-4 bg-primary-600 text-white px-8 py-5 rounded-full font-bold text-xl shadow-lg shadow-primary-600/30 animate-pulse">
-                <span>Sentuh Layar Untuk Mengisi Buku Tamu</span>
+                <span>Sentuh Layar Untuk Check-In (SAPA)</span>
                 <ChevronRight className="w-6 h-6" />
               </div>
             </div>
@@ -184,7 +184,7 @@ export default function BukuTamuKiosk() {
 
               <div className="pt-6">
                 <button type="submit" className="w-full flex items-center justify-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-5 rounded-2xl font-black text-xl shadow-xl shadow-primary-600/20 transition-all hover:scale-[1.02]">
-                  Simpan Buku Tamu
+                  Simpan Data (Check-In)
                   <ArrowRight className="w-6 h-6" />
                 </button>
               </div>

@@ -114,9 +114,9 @@ export default function RadarTamuAdmin() {
                 <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
                 LIVE
               </div>
-              Radar Tamu
+              Radar SAPA
             </h1>
-            <p className="text-primary-100 font-medium">Sistem Monitoring & Resepsionis Digital Al-Andalus</p>
+            <p className="text-primary-100 font-medium">Sistem Administrasi Pengunjung & Akses (SAPA)</p>
           </div>
           <div className="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
             <div className="text-xs font-bold text-primary-200 uppercase tracking-widest mb-1">Jadwal Piket Hari Ini</div>
