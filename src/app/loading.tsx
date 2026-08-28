@@ -4,7 +4,7 @@ import { Loader2 } from "lucide-react";
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-50">
+    <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-50 overscroll-contain">
       <div className="relative flex flex-col items-center">
         {/* Logo or Center Icon */}
         <div className="absolute inset-0 flex items-center justify-center">

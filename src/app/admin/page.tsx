@@ -229,7 +229,7 @@ export default function RadarTamuAdmin() {
       </div>
 
       {ratingMode && (
-        <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 overscroll-contain">
           <div className="bg-white rounded-[2.5rem] p-10 max-w-lg w-full text-center shadow-2xl animate-in zoom-in duration-300 border border-white/20">
             <Star className="w-20 h-20 text-gold-400 mx-auto mb-6 drop-shadow-md" />
             <h2 className="text-3xl font-black text-slate-800 mb-2">Penilaian Pelayanan</h2>
