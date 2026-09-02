@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { Users, Search, Building, User, ChevronRight, CheckCircle2, UserCheck, ArrowRight } from "lucide-react";
@@ -68,7 +68,7 @@ export default function BukuTamuKiosk() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#F0F7FF] via-[#F8FAFC] to-white text-slate-900 font-sans flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary-100 rounded-full blur-3xl opacity-50 z-0 pointer-events-none"></div>
       <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-secondary-100 rounded-full blur-3xl opacity-40 z-0 pointer-events-none"></div>
@@ -81,7 +81,7 @@ export default function BukuTamuKiosk() {
             onClick={() => setStep(1)}
             className="flex flex-col items-center justify-center min-h-[60vh] cursor-pointer hover:scale-[1.02] transition-transform duration-500"
           >
-            <div className="bg-white/80 backdrop-blur-xl p-16 rounded-[3rem] shadow-2xl shadow-primary-500/10 text-center border border-white">
+            <div className="bg-white p-12 md:p-16 rounded-3xl shadow-xl shadow-slate-900/5 text-center border border-slate-200/90">
               <img src="/logo-alimam.png" alt="Logo" className="w-32 h-32 mx-auto mb-8 drop-shadow-md"  />
               <h1 className="text-5xl font-black text-slate-800 mb-4 tracking-tight">Ahlan wa Sahlan</h1>
               <p className="text-2xl text-slate-600 mb-12">Pesantren Al-Andalus / Al-Imam</p>
@@ -92,7 +92,7 @@ export default function BukuTamuKiosk() {
               </div>
             </div>
             <div className="mt-8 text-slate-500 font-medium tracking-wide">
-              {currentDay} • {currentTime} WIB
+              {currentDay} â€¢ {currentTime} WIB
             </div>
           </div>
         )}
@@ -183,7 +183,7 @@ export default function BukuTamuKiosk() {
               </div>
 
               <div className="pt-6">
-                <button type="submit" className="w-full flex items-center justify-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-5 rounded-2xl font-black text-xl shadow-xl shadow-primary-600/20 transition-all hover:scale-[1.02]">
+                <button type="submit" className="w-full flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-extrabold text-lg shadow-md shadow-emerald-600/20 transition-all hover:scale-[1.02]">
                   Simpan Data (Check-In)
                   <ArrowRight className="w-6 h-6" />
                 </button>
@@ -210,3 +210,4 @@ export default function BukuTamuKiosk() {
     </div>
   );
 }
+
