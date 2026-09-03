@@ -1,12 +1,25 @@
+﻿// src/app/login/page.tsx
 "use client";
+
 import { useState } from "react";
-import { ArrowRight, Lock, User, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Lock,
+  User,
+  ShieldCheck,
+  Eye,
+  EyeOff,
+  Loader2,
+  AlertCircle
+} from "lucide-react";
 
 export default function LoginAsatidz() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleLogin = (e: React.FormEvent) => {
@@ -14,7 +27,6 @@ export default function LoginAsatidz() {
     setErrorMsg("");
     setLoading(true);
 
-    // Hardcode auth for Demo / Pre-DB integration
     setTimeout(() => {
       if (password === "PAAS2026!" || password === "2026#@") {
         document.cookie = "tamu_auth=true; path=/; max-age=86400";
@@ -27,68 +39,158 @@ export default function LoginAsatidz() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 w-full h-96 bg-gradient-to-b from-primary-900 to-primary-700 rounded-b-[4rem] z-0"></div>
+    <div className="min-h-screen bg-gradient-to-b from-[#F0F7FF] via-[#F8FAFC] to-white py-10 px-4 flex flex-col justify-center items-center font-sans relative overflow-hidden">
       
-      <div className="relative z-10 w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="w-24 h-24 bg-white rounded-full p-4 mx-auto mb-4 shadow-xl flex items-center justify-center">
-            <img src="/logo-alimam.png" alt="Logo" className="w-16 h-16 object-contain" />
-          </div>
-          <h1 className="text-3xl font-black text-white mb-2">Portal SAPA</h1>
-          <p className="text-primary-100 font-medium">Sistem Administrasi Pengunjung & Akses</p>
+      {/* Background Micro-Grid */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTAgNjBoNjBNNjAgMGwwIDYwIi8+PC9nPjwvc3ZnPg==')] opacity-70 pointer-events-none" />
+
+      {/* Top Navigation Pills (OMI Standard) */}
+      <div className="w-full max-w-md flex items-center justify-between gap-3 mb-5 relative z-10">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-white/95 border border-slate-200/90 shadow-2xs text-xs font-extrabold uppercase tracking-wider text-slate-700 hover:text-[#550000] hover:border-[#550000]/40 transition-all hover:-translate-y-0.5"
+        >
+          <span>← Layar Kiosk SAPA</span>
+        </Link>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/95 border border-slate-200/90 shadow-2xs text-xs font-bold text-slate-700">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Portal Resepsionis &bull; Staf</span>
         </div>
-
-        <div className="bg-white/90 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-2xl border border-white">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <ShieldCheck className="w-5 h-5 text-emerald-500" />
-            <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">Secure Login</span>
-          </div>
-
-          <form onSubmit={handleLogin} className="space-y-5">
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700">Username / Email / No. WA</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <User className="w-5 h-5 text-slate-400" />
-                </div>
-                <input type="text" required value={username} onChange={e => setUsername(e.target.value)} className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-slate-800 font-medium" placeholder="Masukkan identitas..." />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700">Kata Sandi</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Lock className="w-5 h-5 text-slate-400" />
-                </div>
-                <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-slate-800 font-medium" placeholder="••••••••" />
-              </div>
-            </div>
-
-            {errorMsg && (
-              <div className="p-3 bg-red-50 border border-red-200 text-red-600 rounded-xl text-sm font-bold text-center animate-in fade-in">
-                {errorMsg}
-              </div>
-            )}
-
-            <div className="pt-4">
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-2xl font-black text-lg shadow-xl shadow-primary-600/20 transition-all">
-                {loading ? (
-                  <span className="animate-pulse">Memverifikasi...</span>
-                ) : (
-                  <>Masuk Sistem <ArrowRight className="w-5 h-5" /></>
-                )}
-              </button>
-            </div>
-          </form>
-        </div>
-        
-        <p className="text-center text-slate-400 text-sm font-medium mt-8">
-          &copy; 2026 Pesantren Al-Imam. All rights reserved.
-        </p>
       </div>
+
+      {/* Two-Section OMI Card */}
+      <div className="w-full max-w-md rounded-3xl overflow-hidden shadow-xl shadow-slate-900/5 border border-slate-200 bg-white relative z-10">
+        
+        {/* Section 1: Dark Maroon Gradient Header */}
+        <div className="bg-gradient-to-br from-[#2D0000] via-[#400000] to-[#550000] p-7 text-center text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-36 h-36 bg-[#ddc192]/15 rounded-full blur-2xl pointer-events-none" />
+          
+          <div className="relative z-10 space-y-2.5">
+            <div className="w-16 h-16 bg-white rounded-2xl p-2 mx-auto shadow-md border border-white/20 flex items-center justify-center">
+              <img
+                src="/logo-alimam.png"
+                alt="Logo Al-Imam"
+                className="w-12 h-12 object-contain"
+              />
+            </div>
+            <div>
+              <h1 className="text-2xl font-black tracking-tight text-white">
+                PORTAL RESEPSIONIS
+              </h1>
+              <p className="text-xs text-[#ddc192] font-semibold mt-0.5">
+                Sistem Administrasi Pengunjung &amp; Kunjungan (SAPA)
+              </p>
+            </div>
+            <p className="text-[11px] text-slate-300 font-medium tracking-wider uppercase">
+              Pesantren Al-Imam Al-Islami Sukabumi
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2: White Body Card */}
+        <div className="p-7 space-y-5 bg-white">
+          
+          {/* Info Banner Box */}
+          <div className="p-3.5 rounded-2xl bg-[#ddc192]/15 border border-[#ddc192]/40 text-xs text-[#550000] flex items-center gap-2.5">
+            <ShieldCheck className="w-4 h-4 text-[#550000] shrink-0" />
+            <span className="font-medium leading-relaxed">
+              Login asatidz piket &amp; petugas resepsionis buku tamu.
+            </span>
+          </div>
+
+          {/* Error Alert */}
+          {errorMsg && (
+            <div className="p-3.5 bg-red-50 border border-red-200 rounded-xl flex items-start gap-2.5 text-xs text-red-700 font-bold">
+              <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+              <span>{errorMsg}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            
+            {/* Input Identifier */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-extrabold text-slate-700 flex items-center gap-1">
+                <span>Username / Email / No. WA</span>
+                <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  required
+                  autoFocus
+                  disabled={loading}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Username / Email / No. WA"
+                  className="w-full h-12 pl-4 pr-10 bg-slate-50/60 border border-slate-200 rounded-xl text-sm font-bold text-slate-900 placeholder:text-slate-400 placeholder:font-normal focus:bg-white focus:border-[#550000] focus:ring-4 focus:ring-[#550000]/10 transition-all"
+                />
+                <User className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
+            </div>
+
+            {/* Input Password */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-extrabold text-slate-700 flex items-center gap-1">
+                <span>Kata Sandi Resepsionis</span>
+                <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  type={showPass ? "text" : "password"}
+                  required
+                  disabled={loading}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Masukkan kata sandi akun"
+                  className="w-full h-12 pl-4 pr-11 bg-slate-50/60 border border-slate-200 rounded-xl text-sm font-bold text-slate-900 placeholder:text-slate-400 placeholder:font-normal focus:bg-white focus:border-[#550000] focus:ring-4 focus:ring-[#550000]/10 transition-all"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPass(!showPass)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 transition-colors"
+                >
+                  {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full h-12 rounded-xl bg-[#550000] hover:bg-[#400000] text-white font-extrabold text-sm shadow-md shadow-[#550000]/25 transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Memverifikasi Staf...</span>
+                </>
+              ) : (
+                <>
+                  <span>Masuk ke Panel Resepsionis</span>
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
+            </button>
+          </form>
+
+          {/* Footer Card Info */}
+          <div className="pt-3 border-t border-slate-100 text-center space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span>Koneksi Aman Terenkripsi SSL</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <p className="text-center text-xs text-slate-400 mt-6 font-medium">
+        &copy; 2026 Pesantren Al-Imam Al-Islami &bull; SAPA v1.0
+      </p>
+
     </div>
   );
 }
