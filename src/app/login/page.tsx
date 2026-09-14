@@ -16,7 +16,7 @@ import {
   BookOpen,
   QrCode,
   ClipboardList
-} from "lucide-react";
+, Mail, FileText, IdCard, ChevronRight, ArrowLeft} from "lucide-react";
 
 export default function LoginAsatidz() {
   const [username, setUsername] = useState("");
