@@ -42,527 +42,270 @@ export default function LoginAsatidz() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #1a0000 0%, #3d0000 30%, #550000 60%, #7a0000 100%)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "24px 16px",
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Decorative background orbs */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-20%",
-          right: "-10%",
-          width: "600px",
-          height: "600px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(221,193,146,0.12) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-20%",
-          left: "-10%",
-          width: "500px",
-          height: "500px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-      {/* Subtle grid pattern */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-          pointerEvents: "none",
-        }}
-      />
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 sm:p-8 relative overflow-hidden font-sans">
+        {/* Background Mesh */}
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-primary-400/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[100px] pointer-events-none" />
+        
+        {/* Subtle grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
 
-      {/* Main Card */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 10,
-          width: "100%",
-          maxWidth: "460px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "24px",
-        }}
-      >
-        {/* Top nav */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Link
-            href="/"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              padding: "8px 16px",
-              borderRadius: "100px",
-              background: "rgba(255,255,255,0.1)",
-              border: "1px solid rgba(255,255,255,0.15)",
-              color: "rgba(255,255,255,0.8)",
-              fontSize: "11px",
-              fontWeight: 700,
-              textDecoration: "none",
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-              backdropFilter: "blur(8px)",
-              transition: "all 0.2s",
-            }}
-          >
-            <ArrowRight
-              style={{ width: 12, height: 12, transform: "rotate(180deg)" }}
-            />
-            Layar Kiosk SAPA
-          </Link>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "8px 16px",
-              borderRadius: "100px",
-              background: "rgba(255,255,255,0.08)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              backdropFilter: "blur(8px)",
-            }}
-          >
-            <span
-              style={{
-                width: 7,
-                height: 7,
-                borderRadius: "50%",
-                background: "#4ade80",
-                display: "inline-block",
-                boxShadow: "0 0 8px #4ade80",
-              }}
-            />
-            <span
-              style={{
-                color: "rgba(255,255,255,0.8)",
-                fontSize: "11px",
-                fontWeight: 700,
-                letterSpacing: "0.04em",
-              }}
+        <div className="relative z-10 w-full max-w-md flex flex-col gap-6">
+          {/* Top Nav */}
+          <div className="flex items-center justify-between">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 hover:text-primary-600 shadow-sm transition-all"
             >
-              Portal Resepsionis &bull; Staf
-            </span>
+              <ArrowLeft className="w-4 h-4" />
+              Beranda
+            </Link>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse" />
+              <span className="text-xs font-bold text-slate-700">
+                Portal SPMB 2026/2027
+              </span>
+            </div>
           </div>
-        </div>
 
-        {/* Hero Brand Section */}
-        <div style={{ textAlign: "center" }}>
-          <div
-            style={{
-              width: 72,
-              height: 72,
-              borderRadius: "20px",
-              background: "rgba(255,255,255,0.12)",
-              border: "1px solid rgba(255,255,255,0.2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto 16px",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15)",
-              backdropFilter: "blur(12px)",
-            }}
-          >
-            <img
-              src="/logo-alimam.png"
-              alt="Logo Al-Imam"
-              style={{ width: 48, height: 48, objectFit: "contain" }}
-            />
-          </div>
-          <p
-            style={{
-              fontSize: "10px",
-              fontWeight: 800,
-              textTransform: "uppercase",
-              letterSpacing: "0.2em",
-              color: "#ddc192",
-              marginBottom: "6px",
-            }}
-          >
-            Pesantren Islam Al-Imam Sukabumi
-          </p>
-          <h1
-            style={{
-              fontSize: "28px",
-              fontWeight: 800,
-              color: "#ffffff",
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2,
-              marginBottom: "8px",
-            }}
-          >
-            SAPA Al-Imam
-          </h1>
-          <p
-            style={{
-              fontSize: "13px",
-              color: "rgba(255,255,255,0.6)",
-              fontWeight: 400,
-              lineHeight: 1.5,
-            }}
-          >
-            Sistem Administrasi Pelayanan &amp; Kunjungan Tamu
-          </p>
-        </div>
-
-        {/* Login Form Card */}
-        <div
-          style={{
-            background: "rgba(255,255,255,0.97)",
-            borderRadius: "24px",
-            padding: "32px",
-            boxShadow: "0 32px 80px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.8)",
-            border: "1px solid rgba(255,255,255,0.3)",
-          }}
-        >
-          <div style={{ marginBottom: "24px" }}>
-            <h2
-              style={{
-                fontSize: "20px",
-                fontWeight: 800,
-                color: "#0f172a",
-                letterSpacing: "-0.02em",
-                marginBottom: "4px",
-              }}
-            >
-              Masuk Portal Resepsionis
-            </h2>
-            <p style={{ fontSize: "12px", color: "#64748b", fontWeight: 400 }}>
-              Silakan masukkan kredensial petugas resepsionis atau pengurus.
+          {/* Hero Header */}
+          <div className="text-center">
+            <div className="w-20 h-20 mx-auto bg-white rounded-3xl border border-slate-100 shadow-[0_16px_40px_rgba(0,0,0,0.08)] flex items-center justify-center mb-5 relative">
+              <div className="absolute inset-0 rounded-3xl bg-primary-500/10 blur-xl -z-10" />
+              <img
+                src={BRANDING?.logoPath || "/logo.png"}
+                alt={"Logo"}
+                className="w-12 h-12 object-contain drop-shadow-md"
+              />
+            </div>
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-600 mb-2">
+              {BRANDING?.schoolName || "Pesantren Al-Imam"}
+            </p>
+            <h1 className="text-3xl font-black text-slate-900 tracking-tight leading-tight mb-2">
+              Portal Masuk
+            </h1>
+            <p className="text-sm font-medium text-slate-500">
+              {BRANDING?.schoolTagline || "Seleksi Penerimaan Murid Baru"}
             </p>
           </div>
 
-          {/* Info banner */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              padding: "10px 14px",
-              borderRadius: "12px",
-              background: "linear-gradient(135deg, #fff8ec 0%, #fdf4e7 100%)",
-              border: "1px solid #ddc19240",
-              marginBottom: "20px",
-            }}
-          >
-            <ShieldCheck style={{ width: 15, height: 15, color: "#550000", flexShrink: 0 }} />
-            <span style={{ fontSize: "11px", color: "#550000", fontWeight: 500, lineHeight: 1.4 }}>
-              Akses khusus petugas front office &amp; keamanan pesantren.
-            </span>
-          </div>
-
-          <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            {/* Username field */}
-            <div>
-              <label
-                style={{
-                  display: "block",
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  color: "#475569",
-                  marginBottom: "6px",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.06em",
-                }}
-              >
-                Username Petugas <span style={{ color: "#ef4444" }}>*</span>
-              </label>
-              <div style={{ position: "relative" }}>
-                <User
-                  style={{
-                    position: "absolute",
-                    left: 14,
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    width: 15,
-                    height: 15,
-                    color: "#94a3b8",
-                    pointerEvents: "none",
-                  }}
-                />
-                <input
-                  type="text"
-                  required
-                  autoFocus
-                  disabled={loading}
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Username Petugas / Staf"
-                  style={{
-                    width: "100%",
-                    height: "48px",
-                    paddingLeft: "40px",
-                    paddingRight: "16px",
-                    background: "#f8fafc",
-                    border: "1.5px solid #e2e8f0",
-                    borderRadius: "12px",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                    color: "#0f172a",
-                    outline: "none",
-                    transition: "all 0.2s",
-                    boxSizing: "border-box",
-                    fontFamily: "inherit",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#550000";
-                    e.target.style.background = "#ffffff";
-                    e.target.style.boxShadow = "0 0 0 4px rgba(85,0,0,0.08)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e2e8f0";
-                    e.target.style.background = "#f8fafc";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
+          {/* Main Card */}
+          <div className="bg-white/80 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 shadow-[0_24px_80px_rgba(0,0,0,0.07)] border border-white">
+            {roleSelectionData ? (
+              <div className="space-y-4">
+                 <div className="text-center mb-6">
+                   <h3 className="text-xl font-black text-slate-900 tracking-tight">
+                     Selamat datang, {roleSelectionData.full_name.split(" ")[0]}!
+                   </h3>
+                   <p className="text-xs font-medium text-slate-500 mt-2">
+                     Pilih dashboard yang ingin diakses:
+                   </p>
+                 </div>
+                 <div className="space-y-3">
+                    {roleSelectionData.available_roles.map((role) => {
+                      const info = ROLE_INFO[role] || {
+                        label: role,
+                        icon: ShieldCheck,
+                        desc: "",
+                        color: "from-slate-50 to-gray-50 border-slate-200"
+                      };
+                      const IconComp = info.icon;
+                      return (
+                        <button
+                          key={role}
+                          onClick={() => handleSelectRole(role)}
+                          disabled={selectingRole}
+                          className="w-full p-4 rounded-2xl border border-slate-200 bg-white hover:border-primary-300 hover:shadow-lg hover:shadow-primary-600/10 text-left flex items-center gap-4 transition-all disabled:opacity-60 cursor-pointer group"
+                        >
+                          <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 shrink-0 group-hover:bg-primary-50 group-hover:text-primary-600 transition-colors">
+                            <IconComp className="w-5 h-5" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="font-bold text-slate-900 text-sm">
+                              {info.label}
+                            </p>
+                            {info.desc && (
+                              <p className="text-[11px] text-slate-500 font-medium mt-0.5">
+                                {info.desc}
+                              </p>
+                            )}
+                          </div>
+                          {selectingRole ? (
+                            <Loader2 className="w-5 h-5 animate-spin text-slate-400" />
+                          ) : (
+                            <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-primary-500 transition-colors" />
+                          )}
+                        </button>
+                      );
+                    })}
+                 </div>
+                 <button
+                   type="button"
+                   onClick={() => {
+                     setRoleSelectionData(null);
+                     setError("");
+                   }}
+                   className="w-full mt-6 text-center text-xs text-slate-500 hover:text-slate-800 font-bold flex items-center justify-center gap-2 cursor-pointer transition-colors"
+                 >
+                   <ArrowLeft className="w-4 h-4" /> Gunakan akun lain
+                 </button>
               </div>
-            </div>
+            ) : (
+              <>
+                {/* Tabs */}
+                <div className="flex bg-slate-100/80 p-1.5 rounded-2xl mb-6">
+                  <button
+                    type="button"
+                    onClick={() => { setActiveTab("pendaftar"); setError(""); }}
+                    className={`flex-1 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all ${activeTab === "pendaftar" ? "bg-white text-primary-700 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                  >
+                    Calon Santri
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { setActiveTab("admin"); setError(""); }}
+                    className={`flex-1 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all ${activeTab === "admin" ? "bg-white text-primary-700 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                  >
+                    Portal Staf
+                  </button>
+                </div>
 
-            {/* Password field */}
-            <div>
-              <label
-                style={{
-                  display: "block",
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  color: "#475569",
-                  marginBottom: "6px",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.06em",
-                }}
-              >
-                Kata Sandi <span style={{ color: "#ef4444" }}>*</span>
-              </label>
-              <div style={{ position: "relative" }}>
-                <Lock
-                  style={{
-                    position: "absolute",
-                    left: 14,
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    width: 15,
-                    height: 15,
-                    color: "#94a3b8",
-                    pointerEvents: "none",
-                  }}
-                />
-                <input
-                  type={showPass ? "text" : "password"}
-                  required
-                  disabled={loading}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Masukkan kata sandi akses"
-                  style={{
-                    width: "100%",
-                    height: "48px",
-                    paddingLeft: "40px",
-                    paddingRight: "44px",
-                    background: "#f8fafc",
-                    border: "1.5px solid #e2e8f0",
-                    borderRadius: "12px",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                    color: "#0f172a",
-                    outline: "none",
-                    transition: "all 0.2s",
-                    boxSizing: "border-box",
-                    fontFamily: "inherit",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#550000";
-                    e.target.style.background = "#ffffff";
-                    e.target.style.boxShadow = "0 0 0 4px rgba(85,0,0,0.08)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e2e8f0";
-                    e.target.style.background = "#f8fafc";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-                <button
-                  type="button"
-                  tabIndex={-1}
-                  onMouseDown={(e) => e.preventDefault()}
-                  onClick={() => setShowPass(!showPass)}
-                  style={{
-                    position: "absolute",
-                    right: 12,
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    color: "#94a3b8",
-                    padding: "4px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                  aria-label="Tampilkan kata sandi"
-                >
-                  {showPass ? (
-                    <EyeOff style={{ width: 16, height: 16 }} />
-                  ) : (
-                    <Eye style={{ width: 16, height: 16 }} />
-                  )}
-                </button>
-              </div>
-            </div>
+                {/* Banner Register */}
+                <div className="flex items-center justify-between px-4 py-3.5 rounded-2xl bg-amber-50/80 border border-amber-200/60 mb-6">
+                  <span className="text-[11px] font-bold text-amber-900">Belum mendaftar?</span>
+                  <Link href="/daftar" className="text-[11px] font-black text-amber-700 flex items-center gap-1 hover:text-amber-800">
+                    Buat Akun <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
 
-            {/* Error */}
-            {errorMsg && (
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "12px 14px",
-                  borderRadius: "12px",
-                  background: "#fef2f2",
-                  border: "1px solid #fecaca",
-                }}
-              >
-                <AlertCircle style={{ width: 14, height: 14, color: "#dc2626", flexShrink: 0 }} />
-                <span style={{ fontSize: "12px", fontWeight: 600, color: "#dc2626" }}>{errorMsg}</span>
-              </div>
+                {error && (
+                  <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-red-50 border border-red-100 mb-5">
+                    <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+                    <span className="text-xs font-bold text-red-600">{error}</span>
+                  </div>
+                )}
+
+                {activeTab === "pendaftar" ? (
+                  <form onSubmit={handleLoginPendaftar} className="flex flex-col gap-5">
+                    <div className="space-y-1.5">
+                      <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                        Nomor Pendaftaran <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <FileText className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type="text"
+                          required
+                          value={nomorPendaftaran}
+                          onChange={(e) => setNomorPendaftaran(e.target.value.toUpperCase())}
+                          placeholder="Contoh: SPA2700001"
+                          disabled={isLoading}
+                          className="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-bold text-slate-800 placeholder:font-medium placeholder:text-slate-400 focus:bg-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all outline-none uppercase"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                        NIK Calon Santri <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <IdCard className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          maxLength={16}
+                          required
+                          value={nikPendaftar}
+                          onChange={(e) => setNikPendaftar(e.target.value.replace(/\D/g, ""))}
+                          placeholder="16 Digit NIK sesuai KK"
+                          disabled={isLoading}
+                          className="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-bold text-slate-800 placeholder:font-medium placeholder:text-slate-400 focus:bg-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all outline-none"
+                        />
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isLoading}
+                      className="w-full h-14 mt-2 rounded-2xl bg-primary-600 hover:bg-primary-700 text-white font-black text-[13px] tracking-wide flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                    >
+                      {isLoading ? (
+                        <><Loader2 className="w-5 h-5 animate-spin" /> <span>Memverifikasi...</span></>
+                      ) : (
+                        <><span>Masuk Portal Santri</span> <ArrowRight className="w-5 h-5" /></>
+                      )}
+                    </button>
+                  </form>
+                ) : (
+                  <form onSubmit={handleLoginAdmin} className="flex flex-col gap-5">
+                    <div className="space-y-1.5">
+                      <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                        Email / Username / No. WA <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type="text"
+                          required
+                          value={emailAdmin}
+                          onChange={(e) => setEmailAdmin(e.target.value)}
+                          placeholder="Kredensial Staf"
+                          disabled={isLoading}
+                          className="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-bold text-slate-800 placeholder:font-medium placeholder:text-slate-400 focus:bg-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all outline-none"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                        Kata Sandi <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          required
+                          value={passwordAdmin}
+                          onChange={(e) => setPasswordAdmin(e.target.value)}
+                          placeholder="Masukkan kata sandi"
+                          disabled={isLoading}
+                          className="w-full h-14 pl-12 pr-12 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-bold text-slate-800 placeholder:font-medium placeholder:text-slate-400 focus:bg-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all outline-none"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
+                        >
+                          {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isLoading}
+                      className="w-full h-14 mt-2 rounded-2xl bg-primary-600 hover:bg-primary-700 text-white font-black text-[13px] tracking-wide flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                    >
+                      {isLoading ? (
+                        <><Loader2 className="w-5 h-5 animate-spin" /> <span>Memverifikasi...</span></>
+                      ) : (
+                        <><span>Masuk Portal Staf</span> <ArrowRight className="w-5 h-5" /></>
+                      )}
+                    </button>
+                  </form>
+                )}
+              </>
             )}
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              style={{
-                width: "100%",
-                height: "50px",
-                borderRadius: "12px",
-                background: loading
-                  ? "#7a0000"
-                  : "linear-gradient(135deg, #550000 0%, #7a0000 100%)",
-                color: "#ffffff",
-                fontWeight: 800,
-                fontSize: "13px",
-                letterSpacing: "0.02em",
-                border: "none",
-                cursor: loading ? "not-allowed" : "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "8px",
-                boxShadow: loading ? "none" : "0 8px 24px rgba(85,0,0,0.35)",
-                transition: "all 0.2s",
-                fontFamily: "inherit",
-                opacity: loading ? 0.8 : 1,
-              }}
-            >
-              {loading ? (
-                <>
-                  <Loader2 style={{ width: 16, height: 16, animation: "spin 1s linear infinite" }} />
-                  <span>Memverifikasi Akses...</span>
-                </>
-              ) : (
-                <>
-                  <span>Masuk ke Panel Resepsionis</span>
-                  <ArrowRight style={{ width: 16, height: 16 }} />
-                </>
-              )}
-            </button>
-          </form>
-
-          {/* Footer inside card */}
-          <div
-            style={{
-              marginTop: "20px",
-              paddingTop: "16px",
-              borderTop: "1px solid #f1f5f9",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "6px",
-            }}
-          >
-            <span
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: "50%",
-                background: "#4ade80",
-                display: "inline-block",
-              }}
-            />
-            <span style={{ fontSize: "11px", color: "#94a3b8", fontWeight: 600 }}>
-              Koneksi Aman Terenkripsi SSL
-            </span>
           </div>
-        </div>
-
-        {/* Feature pills */}
-        <div style={{ display: "flex", gap: "8px", justifyContent: "center", flexWrap: "wrap" }}>
-          {[
-            { icon: BookOpen, label: "Buku Tamu Digital" },
-            { icon: QrCode, label: "Scan Kunjungan" },
-            { icon: ClipboardList, label: "Rekapitulasi Tamu" },
-          ].map(({ icon: Icon, label }) => (
-            <div
-              key={label}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                padding: "6px 14px",
-                borderRadius: "100px",
-                background: "rgba(255,255,255,0.08)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              <Icon style={{ width: 11, height: 11, color: "#ddc192" }} />
-              <span style={{ fontSize: "10px", fontWeight: 600, color: "rgba(255,255,255,0.7)", letterSpacing: "0.03em" }}>
-                {label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Footer */}
-        <div style={{ textAlign: "center" }}>
-          <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", fontWeight: 500 }}>
-            &copy; 2026 Pesantren Al-Imam Al-Islami &bull; SAPA v2.0
-          </p>
+          
+          <div className="text-center pt-2">
+            <p className="text-[11px] font-bold text-slate-400">
+              &copy; {new Date().getFullYear()} {BRANDING?.schoolName || "Pesantren Al-Imam"}. Hak Cipta Dilindungi.
+            </p>
+          </div>
         </div>
       </div>
+    );
 
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-    </div>
-  );
 }
