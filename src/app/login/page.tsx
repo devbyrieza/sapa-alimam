@@ -1,6 +1,6 @@
-﻿// src/app/login/page.tsx
 "use client";
 
+// src/app/login/page.tsx
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +12,10 @@ import {
   Eye,
   EyeOff,
   Loader2,
-  AlertCircle
+  AlertCircle,
+  BookOpen,
+  QrCode,
+  ClipboardList
 } from "lucide-react";
 
 export default function LoginAsatidz() {
@@ -39,134 +42,270 @@ export default function LoginAsatidz() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#F0F7FF] via-[#F8FAFC] to-white py-10 px-4 flex flex-col justify-center items-center font-sans relative overflow-hidden">
-      
-      {/* Background Micro-Grid */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTAgNjBoNjBNNjAgMGwwIDYwIi8+PC9nPjwvc3ZnPg==')] opacity-70 pointer-events-none" />
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #1a0000 0%, #3d0000 30%, #550000 60%, #7a0000 100%)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "24px 16px",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Decorative background orbs */}
+      <div
+        style={{
+          position: "absolute",
+          top: "-20%",
+          right: "-10%",
+          width: "600px",
+          height: "600px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(221,193,146,0.12) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-20%",
+          left: "-10%",
+          width: "500px",
+          height: "500px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
+      {/* Subtle grid pattern */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+          pointerEvents: "none",
+        }}
+      />
 
-      {/* Top Navigation Pills (OMI Standard) */}
-      <div className="w-full max-w-md flex items-center justify-between gap-3 mb-5 relative z-10">
-      {/* Top Navigation Pills (OMI Standard) */}
-      <div className="w-full max-w-5xl lg:max-w-6xl flex items-center justify-between gap-3 mb-4 relative z-10">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-white/95 border border-slate-200/90 shadow-2xs text-xs font-extrabold uppercase tracking-wider text-slate-700 hover:text-[#550000] hover:border-[#550000]/40 transition-all hover:-translate-y-0.5"
+      {/* Main Card */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 10,
+          width: "100%",
+          maxWidth: "460px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "24px",
+        }}
+      >
+        {/* Top nav */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
         >
-          <ArrowRight className="w-3.5 h-3.5 rotate-180" />
-          <span>Layar Kiosk SAPA</span>
-        </Link>
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/95 border border-slate-200/90 shadow-2xs text-xs font-bold text-slate-700">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Portal Resepsionis &bull; Staf</span>
-        </div>
-      </div>
-
-      {/* Two-Panel OMI Card (Desktop Split / Mobile Stacked) */}
-      <div className="w-full max-w-5xl lg:max-w-6xl rounded-3xl overflow-hidden shadow-2xl shadow-slate-950/10 border border-slate-200 bg-white grid grid-cols-1 lg:grid-cols-12 relative z-10">
-        
-        {/* Sisi Kiri: Panel Identitas & 2 Bento Unggulan (Desktop: 5 Columns) */}
-        <div className="hidden lg:flex lg:col-span-5 bg-gradient-to-br from-[#2D0000] via-[#400000] to-[#550000] p-6 sm:p-8 lg:p-10 text-white relative overflow-hidden flex flex-col justify-between">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#ddc192]/10 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="relative z-10 space-y-6">
-            <div className="inline-flex items-center gap-3 bg-white px-3.5 py-2 rounded-2xl shadow-sm">
-              <img
-                src="/logo-alimam.png"
-                alt="Logo Al-Imam"
-                className="w-7 h-7 object-contain"
-              />
-              <span className="text-xs font-extrabold text-slate-900 tracking-tight">
-                SAPA AL-IMAM
-              </span>
-            </div>
-
-            <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ddc192] bg-white/10 px-3 py-1 rounded-full border border-white/15 inline-block mb-3">
-                Buku Tamu &amp; Kunjungan
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-snug">
-                Portal Resepsionis &amp; Tamu
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-200/90 font-normal mt-2 leading-relaxed">
-                Sistem Administrasi Pelayanan dan Kunjungan Tamu Pesantren Al-Imam Al-Islami Sukabumi.
-              </p>
-            </div>
-
-            {/* 2 Kartu Bento Fitur Unggulan */}
-            <div className="space-y-3 pt-2">
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 flex items-center gap-3.5 shadow-sm">
-                <div className="w-11 h-11 rounded-xl bg-[#ddc192]/20 border border-[#ddc192]/30 flex items-center justify-center shrink-0 text-[#ddc192]">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-extrabold text-white">
-                    Layanan Tamu &amp; Kedinasan
-                  </h4>
-                  <p className="text-[11px] text-slate-300 font-normal">
-                    Check-in cepat &amp; cetak ID card tamu
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 flex items-center gap-3.5 shadow-sm">
-                <div className="w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center shrink-0 text-emerald-300">
-                  <ArrowRight className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-extrabold text-white">
-                    Protokol Keamanan Kampus
-                  </h4>
-                  <p className="text-[11px] text-slate-300 font-normal">
-                    Pencatatan tamu real-time &amp; tertib
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative z-10 pt-6 mt-6 border-t border-white/10 text-[11px] text-slate-300/80 font-medium flex items-center justify-between">
-            <span>Pos Keamanan &bull; SAPA Al-Imam</span>
-            <span className="text-[#ddc192]">&bull; Terintegrasi</span>
+          <Link
+            href="/"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "8px 16px",
+              borderRadius: "100px",
+              background: "rgba(255,255,255,0.1)",
+              border: "1px solid rgba(255,255,255,0.15)",
+              color: "rgba(255,255,255,0.8)",
+              fontSize: "11px",
+              fontWeight: 700,
+              textDecoration: "none",
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+              backdropFilter: "blur(8px)",
+              transition: "all 0.2s",
+            }}
+          >
+            <ArrowRight
+              style={{ width: 12, height: 12, transform: "rotate(180deg)" }}
+            />
+            Layar Kiosk SAPA
+          </Link>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "8px 16px",
+              borderRadius: "100px",
+              background: "rgba(255,255,255,0.08)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <span
+              style={{
+                width: 7,
+                height: 7,
+                borderRadius: "50%",
+                background: "#4ade80",
+                display: "inline-block",
+                boxShadow: "0 0 8px #4ade80",
+              }}
+            />
+            <span
+              style={{
+                color: "rgba(255,255,255,0.8)",
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "0.04em",
+              }}
+            >
+              Portal Resepsionis &bull; Staf
+            </span>
           </div>
         </div>
 
-        {/* Sisi Kanan: White Form Body (Desktop: 7 Columns) */}
-        <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 bg-white space-y-5 flex flex-col justify-center">
-          
-          <div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+        {/* Hero Brand Section */}
+        <div style={{ textAlign: "center" }}>
+          <div
+            style={{
+              width: 72,
+              height: 72,
+              borderRadius: "20px",
+              background: "rgba(255,255,255,0.12)",
+              border: "1px solid rgba(255,255,255,0.2)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "0 auto 16px",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15)",
+              backdropFilter: "blur(12px)",
+            }}
+          >
+            <img
+              src="/logo-alimam.png"
+              alt="Logo Al-Imam"
+              style={{ width: 48, height: 48, objectFit: "contain" }}
+            />
+          </div>
+          <p
+            style={{
+              fontSize: "10px",
+              fontWeight: 800,
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: "#ddc192",
+              marginBottom: "6px",
+            }}
+          >
+            Pesantren Islam Al-Imam Sukabumi
+          </p>
+          <h1
+            style={{
+              fontSize: "28px",
+              fontWeight: 800,
+              color: "#ffffff",
+              letterSpacing: "-0.02em",
+              lineHeight: 1.2,
+              marginBottom: "8px",
+            }}
+          >
+            SAPA Al-Imam
+          </h1>
+          <p
+            style={{
+              fontSize: "13px",
+              color: "rgba(255,255,255,0.6)",
+              fontWeight: 400,
+              lineHeight: 1.5,
+            }}
+          >
+            Sistem Administrasi Pelayanan &amp; Kunjungan Tamu
+          </p>
+        </div>
+
+        {/* Login Form Card */}
+        <div
+          style={{
+            background: "rgba(255,255,255,0.97)",
+            borderRadius: "24px",
+            padding: "32px",
+            boxShadow: "0 32px 80px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.8)",
+            border: "1px solid rgba(255,255,255,0.3)",
+          }}
+        >
+          <div style={{ marginBottom: "24px" }}>
+            <h2
+              style={{
+                fontSize: "20px",
+                fontWeight: 800,
+                color: "#0f172a",
+                letterSpacing: "-0.02em",
+                marginBottom: "4px",
+              }}
+            >
               Masuk Portal Resepsionis
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-500 font-normal mt-1 leading-relaxed">
-              Silakan masukkan kredensial akun asatidz piket atau staf resepsionis.
+            </h2>
+            <p style={{ fontSize: "12px", color: "#64748b", fontWeight: 400 }}>
+              Silakan masukkan kredensial petugas resepsionis atau pengurus.
             </p>
           </div>
-          
-          {/* Info Banner Box */}
-          <div className="p-3.5 rounded-2xl bg-[#ddc192]/15 border border-[#ddc192]/40 text-xs text-[#550000] flex items-center gap-2.5">
-            <ShieldCheck className="w-4 h-4 text-[#550000] shrink-0" />
-            <span className="font-medium leading-relaxed">
-              Login asatidz piket &amp; petugas resepsionis buku tamu.
+
+          {/* Info banner */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              padding: "10px 14px",
+              borderRadius: "12px",
+              background: "linear-gradient(135deg, #fff8ec 0%, #fdf4e7 100%)",
+              border: "1px solid #ddc19240",
+              marginBottom: "20px",
+            }}
+          >
+            <ShieldCheck style={{ width: 15, height: 15, color: "#550000", flexShrink: 0 }} />
+            <span style={{ fontSize: "11px", color: "#550000", fontWeight: 500, lineHeight: 1.4 }}>
+              Akses khusus petugas front office &amp; keamanan pesantren.
             </span>
           </div>
 
-          {/* Error Alert */}
-          {errorMsg && (
-            <div className="p-3.5 bg-red-50 border border-red-200 rounded-xl flex items-start gap-2.5 text-xs text-red-700 font-bold">
-              <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
-              <span>{errorMsg}</span>
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            
-            {/* Input Identifier */}
-            <div className="space-y-1.5">
-              <label className="text-xs font-extrabold text-slate-700 flex items-center gap-1">
-                <span>Username / Email / No. WA</span>
-                <span className="text-red-500">*</span>
+          <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {/* Username field */}
+            <div>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  color: "#475569",
+                  marginBottom: "6px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                Username Petugas <span style={{ color: "#ef4444" }}>*</span>
               </label>
-              <div className="relative">
+              <div style={{ position: "relative" }}>
+                <User
+                  style={{
+                    position: "absolute",
+                    left: 14,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: 15,
+                    height: 15,
+                    color: "#94a3b8",
+                    pointerEvents: "none",
+                  }}
+                />
                 <input
                   type="text"
                   required
@@ -174,79 +313,256 @@ export default function LoginAsatidz() {
                   disabled={loading}
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Username / Email / No. WA"
-                  className="w-full h-12 pl-4 pr-10 bg-slate-50/60 border border-slate-200 rounded-xl text-sm font-bold text-slate-900 placeholder:text-slate-400 placeholder:font-normal focus:bg-white focus:border-[#550000] focus:ring-4 focus:ring-[#550000]/10 transition-all"
+                  placeholder="Username Petugas / Staf"
+                  style={{
+                    width: "100%",
+                    height: "48px",
+                    paddingLeft: "40px",
+                    paddingRight: "16px",
+                    background: "#f8fafc",
+                    border: "1.5px solid #e2e8f0",
+                    borderRadius: "12px",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    color: "#0f172a",
+                    outline: "none",
+                    transition: "all 0.2s",
+                    boxSizing: "border-box",
+                    fontFamily: "inherit",
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = "#550000";
+                    e.target.style.background = "#ffffff";
+                    e.target.style.boxShadow = "0 0 0 4px rgba(85,0,0,0.08)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = "#e2e8f0";
+                    e.target.style.background = "#f8fafc";
+                    e.target.style.boxShadow = "none";
+                  }}
                 />
-                <User className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
-            {/* Input Password */}
-            <div className="space-y-1.5">
-              <label className="text-xs font-extrabold text-slate-700 flex items-center gap-1">
-                <span>Kata Sandi Resepsionis</span>
-                <span className="text-red-500">*</span>
+            {/* Password field */}
+            <div>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  color: "#475569",
+                  marginBottom: "6px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                Kata Sandi <span style={{ color: "#ef4444" }}>*</span>
               </label>
-              <div className="relative">
+              <div style={{ position: "relative" }}>
+                <Lock
+                  style={{
+                    position: "absolute",
+                    left: 14,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: 15,
+                    height: 15,
+                    color: "#94a3b8",
+                    pointerEvents: "none",
+                  }}
+                />
                 <input
                   type={showPass ? "text" : "password"}
                   required
                   disabled={loading}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Masukkan kata sandi akun"
-                  className="w-full h-12 pl-4 pr-11 bg-slate-50/60 border border-slate-200 rounded-xl text-sm font-bold text-slate-900 placeholder:text-slate-400 placeholder:font-normal focus:bg-white focus:border-[#550000] focus:ring-4 focus:ring-[#550000]/10 transition-all select-text"
+                  placeholder="Masukkan kata sandi akses"
+                  style={{
+                    width: "100%",
+                    height: "48px",
+                    paddingLeft: "40px",
+                    paddingRight: "44px",
+                    background: "#f8fafc",
+                    border: "1.5px solid #e2e8f0",
+                    borderRadius: "12px",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    color: "#0f172a",
+                    outline: "none",
+                    transition: "all 0.2s",
+                    boxSizing: "border-box",
+                    fontFamily: "inherit",
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = "#550000";
+                    e.target.style.background = "#ffffff";
+                    e.target.style.boxShadow = "0 0 0 4px rgba(85,0,0,0.08)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = "#e2e8f0";
+                    e.target.style.background = "#f8fafc";
+                    e.target.style.boxShadow = "none";
+                  }}
                 />
                 <button
                   type="button"
                   tabIndex={-1}
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => setShowPass(!showPass)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 transition-colors"
-                  aria-label="Tampilkan atau sembunyikan kata sandi"
+                  style={{
+                    position: "absolute",
+                    right: 12,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    color: "#94a3b8",
+                    padding: "4px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                  aria-label="Tampilkan kata sandi"
                 >
-                  {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showPass ? (
+                    <EyeOff style={{ width: 16, height: 16 }} />
+                  ) : (
+                    <Eye style={{ width: 16, height: 16 }} />
+                  )}
                 </button>
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Error */}
+            {errorMsg && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "12px 14px",
+                  borderRadius: "12px",
+                  background: "#fef2f2",
+                  border: "1px solid #fecaca",
+                }}
+              >
+                <AlertCircle style={{ width: 14, height: 14, color: "#dc2626", flexShrink: 0 }} />
+                <span style={{ fontSize: "12px", fontWeight: 600, color: "#dc2626" }}>{errorMsg}</span>
+              </div>
+            )}
+
+            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full h-12 rounded-xl bg-[#550000] hover:bg-[#400000] text-white font-extrabold text-sm shadow-md shadow-[#550000]/25 transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+              style={{
+                width: "100%",
+                height: "50px",
+                borderRadius: "12px",
+                background: loading
+                  ? "#7a0000"
+                  : "linear-gradient(135deg, #550000 0%, #7a0000 100%)",
+                color: "#ffffff",
+                fontWeight: 800,
+                fontSize: "13px",
+                letterSpacing: "0.02em",
+                border: "none",
+                cursor: loading ? "not-allowed" : "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                boxShadow: loading ? "none" : "0 8px 24px rgba(85,0,0,0.35)",
+                transition: "all 0.2s",
+                fontFamily: "inherit",
+                opacity: loading ? 0.8 : 1,
+              }}
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Memverifikasi Staf...</span>
+                  <Loader2 style={{ width: 16, height: 16, animation: "spin 1s linear infinite" }} />
+                  <span>Memverifikasi Akses...</span>
                 </>
               ) : (
                 <>
                   <span>Masuk ke Panel Resepsionis</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight style={{ width: 16, height: 16 }} />
                 </>
               )}
             </button>
           </form>
 
-          {/* Footer Card Info */}
-          <div className="pt-3 border-t border-slate-100 text-center space-y-2">
-            <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span>Koneksi Aman Terenkripsi SSL</span>
-            </div>
+          {/* Footer inside card */}
+          <div
+            style={{
+              marginTop: "20px",
+              paddingTop: "16px",
+              borderTop: "1px solid #f1f5f9",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px",
+            }}
+          >
+            <span
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: "50%",
+                background: "#4ade80",
+                display: "inline-block",
+              }}
+            />
+            <span style={{ fontSize: "11px", color: "#94a3b8", fontWeight: 600 }}>
+              Koneksi Aman Terenkripsi SSL
+            </span>
           </div>
-
         </div>
 
+        {/* Feature pills */}
+        <div style={{ display: "flex", gap: "8px", justifyContent: "center", flexWrap: "wrap" }}>
+          {[
+            { icon: BookOpen, label: "Buku Tamu Digital" },
+            { icon: QrCode, label: "Scan Kunjungan" },
+            { icon: ClipboardList, label: "Rekapitulasi Tamu" },
+          ].map(({ icon: Icon, label }) => (
+            <div
+              key={label}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "6px 14px",
+                borderRadius: "100px",
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <Icon style={{ width: 11, height: 11, color: "#ddc192" }} />
+              <span style={{ fontSize: "10px", fontWeight: 600, color: "rgba(255,255,255,0.7)", letterSpacing: "0.03em" }}>
+                {label}
+              </span>
+            </div>
+          ))}
         </div>
 
+        {/* Footer */}
+        <div style={{ textAlign: "center" }}>
+          <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", fontWeight: 500 }}>
+            &copy; 2026 Pesantren Al-Imam Al-Islami &bull; SAPA v2.0
+          </p>
+        </div>
       </div>
 
-      <p className="text-center text-xs text-slate-400 mt-6 font-medium">
-        &copy; 2026 Pesantren Al-Imam Al-Islami &bull; SAPA v2.0
-      </p>
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </div>
   );
 }
