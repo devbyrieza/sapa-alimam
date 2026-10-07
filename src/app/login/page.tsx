@@ -99,14 +99,14 @@ export default function LoginAsatidz() {
               <span className="text-[11px] font-bold text-emerald-800">Gunakan kredensial resmi institusi</span>
             </div>
 
-            {error && (
+            {errorMsg && (
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-red-50 border border-red-100 mb-5">
                 <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
-                <span className="text-xs font-bold text-red-600">{error}</span>
+                <span className="text-xs font-bold text-red-600">{errorMsg}</span>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <form onSubmit={handleLogin} className="flex flex-col gap-5">
               <div className="space-y-1.5">
                 <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">
                   Username / Email / No. WA <span className="text-red-500">*</span>
@@ -116,8 +116,8 @@ export default function LoginAsatidz() {
                   <input
                     type="text"
                     required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     placeholder="Masukkan Username / Email / WA"
                     disabled={loading}
                     className="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-bold text-slate-800 placeholder:font-medium placeholder:text-slate-400 focus:bg-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all outline-none"
